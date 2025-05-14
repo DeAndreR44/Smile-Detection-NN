@@ -103,3 +103,59 @@ Author
 DeAndre Robertson
 Machine Learning Developer
 
+BACKGROUND 
+
+Smile Detection on Edge Devices — Project Overview
+This project, developed by Happy Snap A.I., focuses on building a real-time smile detection system using convolutional neural networks (CNNs) optimized for edge computing platforms such as the Raspberry Pi. The goal is to enable accurate and efficient facial emotional recognition (FER) under diverse real-world conditions, with particular emphasis on automatically capturing selfies when a smile is detected.
+
+Objectives
+Develop a CNN-based model capable of real-time smile detection.
+
+Optimize the model for edge deployment (e.g., Raspberry Pi, Jetson Nano).
+
+Automatically trigger a camera to capture a photo upon smile detection.
+
+Technical Approach
+Model Architecture: EfficientNet was selected for its high accuracy and low computational cost.
+
+Libraries and Frameworks: TensorFlow, Keras, Scikit-learn, OpenCV.
+
+Face Detection: Transitioned from Mediapipe to HaarCascade on Raspberry Pi due to hardware limitations.
+
+Data: Utilized public datasets from Kaggle, including smiling and non-smiling images. Applied image augmentation to improve robustness.
+
+System Workflow
+Capture live video feed from the camera.
+
+Detect and crop the face region.
+
+Preprocess the image and run inference using the trained CNN.
+
+If a smile is detected, automatically capture and save a photo.
+
+Key Achievements
+High smile detection accuracy achieved in both controlled and natural environments.
+
+Real-time processing successfully implemented on resource-constrained devices.
+
+Demonstrated the viability of lightweight CNNs for facial expression recognition.
+
+Challenges and Constraints
+Latency and library limitations on Raspberry Pi impacted face detection and processing speed.
+
+Dataset diversity limited model generalization; further data collection is needed.
+
+Model training required significant time and computational resources.
+
+Future Work
+Expand dataset with greater expression variety to improve generalization.
+
+Investigate more efficient face detection algorithms for embedded systems.
+
+Dockerize the solution for improved portability and ease of deployment.
+
+Ethical and Environmental Considerations
+Ensuring user consent in any application involving facial recognition is essential.
+
+Edge-based inference reduces reliance on cloud infrastructure, minimizing environmental impact and improving privacy.
+
