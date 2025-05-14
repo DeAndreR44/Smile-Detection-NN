@@ -1,0 +1,105 @@
+Smile Detection with Neural Networks and Real-Time Face Tracking
+Overview
+This project implements a real-time smile detection system using a deep convolutional neural network (CNN) and MediaPipe for face tracking. It combines a powerful InceptionResNetV2 model with OpenCV and MediaPipe to detect smiles from live webcam input in a Jupyter Notebook environment.
+
+Project Structure
+smile-detection.ipynb: Trains a CNN model (InceptionResNetV2 base) for binary smile classification on a curated dataset.
+
+4-13-25_FaceDetectionPythonCode (1).ipynb: Real-time inference script using OpenCV and MediaPipe for face tracking and live smile prediction.
+
+Features
+✅ Real-time smile detection using webcam video
+✅ Pre-trained CNN with transfer learning
+✅ Integrated face tracking with MediaPipe
+✅ Data augmentation to improve generalization
+✅ Fine-tuned for accuracy and lightweight deployment
+
+Requirements
+Python 3.7+
+
+Jupyter Notebook
+
+TensorFlow
+
+Keras
+
+OpenCV
+
+MediaPipe
+
+NumPy
+
+Matplotlib
+
+Install with:
+
+bash
+Copy
+Edit
+pip install tensorflow opencv-python mediapipe numpy matplotlib
+Model Architecture
+Base model: InceptionResNetV2 (pre-trained on ImageNet, top layers removed)
+
+Custom classification head:
+
+GlobalAveragePooling2D
+
+Dense(512, ReLU)
+
+Dropout (0.5)
+
+Dense(1, Sigmoid)
+
+Loss Function: Binary Crossentropy
+
+Optimizer: Adam
+
+Training: 30 epochs (frozen base), then 30 epochs (partial fine-tuning)
+
+Callbacks:
+
+ModelCheckpoint to save best model
+
+EarlyStopping for overfitting prevention
+
+ReduceLROnPlateau for adaptive learning rate
+
+Dataset
+The model was trained on a labeled image dataset for smile classification. It includes real-world images of smiling and neutral faces, with preprocessing and augmentation applied.
+
+Dataset link:
+Smile Detection Project 2025 on Kaggle
+https://www.kaggle.com/datasets/deanyfjhtj/smile-detection-project-2025
+
+Data Preprocessing
+Image resize: 150×150
+
+Rescale pixel values to [0, 1]
+
+Augmentation: rotation, zoom, width/height shift, shear, flip
+
+80/20 train-validation split via ImageDataGenerator
+
+How to Use
+Train the model
+Open smile-detection.ipynb and run all cells to load, train, and save the smile detection model.
+
+Run real-time detection
+Open 4-13-25_FaceDetectionPythonCode (1).ipynb, ensure your webcam is connected, and execute all cells to start detecting smiles in real time.
+
+Example Output
+The system displays webcam video with bounding boxes and labels ("Smiling"/"Not Smiling") on detected faces.
+
+Future Work
+Deploy on Jetson Nano or Raspberry Pi for edge AI applications
+
+Extend to emotion classification (e.g., happy, sad, surprised)
+
+Improve dataset diversity to increase fairness and accuracy
+
+Convert model to .tflite for mobile use
+
+Author
+DeAndre Robertson
+Machine Learning Developer
+
